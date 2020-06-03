@@ -1,4 +1,4 @@
-package vn.team.system;
+package vn.team.system.app;
 
 import com.google.gson.Gson;
 import java.io.File;
