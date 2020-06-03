@@ -12,5 +12,5 @@ public enum CodeResponse {
   OK(200, "OK");
 
   Integer code;
-  String description;
+  String message;
 }
