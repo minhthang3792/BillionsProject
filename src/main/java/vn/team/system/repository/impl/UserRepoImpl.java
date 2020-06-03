@@ -1,12 +1,11 @@
-package vn.team.system.repository;
+package vn.team.system.repository.impl;
 
-import java.sql.Connection;
 import java.util.List;
-import lombok.RequiredArgsConstructor;
-import org.jooq.impl.DSL;
 import org.springframework.stereotype.Repository;
 import vn.team.system.common.context.AutoCloseableDSLContext;
 import vn.team.system.common.info.UserInfo;
+import vn.team.system.repository.BaseRepoImpl;
+import vn.team.system.repository.intface.UserRepo;
 import vn.team.system.repository.model.tables.User;
 import vn.team.system.repository.model.tables.records.UserRecord;
 

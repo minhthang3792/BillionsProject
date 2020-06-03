@@ -1,11 +1,11 @@
-package vn.team.system.common;
+package vn.team.system.common.constant.start;
 
 import lombok.Data;
 import lombok.experimental.Accessors;
 
 @Data
 @Accessors(chain = true)
-public class DbConnection {
+public class DatabaseConfig {
 
   private String url;
   private String username;
