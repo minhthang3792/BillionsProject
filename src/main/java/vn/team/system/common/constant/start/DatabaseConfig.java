@@ -7,6 +7,7 @@ import lombok.experimental.Accessors;
 @Accessors(chain = true)
 public class DatabaseConfig {
 
+  private String classDriver;
   private String url;
   private String username;
   private String password;

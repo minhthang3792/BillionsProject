@@ -1,46 +1,42 @@
 package vn.team.system.app;
 
-import com.google.gson.Gson;
-import java.io.File;
-import java.nio.file.Files;
 import java.sql.Connection;
-import java.sql.DriverManager;
+import javax.sql.DataSource;
+import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.core.io.ClassPathResource;
-import org.springframework.core.io.Resource;
+import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import vn.team.system.common.ModuleConfig;
 import vn.team.system.common.constant.start.DatabaseConfig;
 
+@Slf4j
 @Configuration
+@AllArgsConstructor
 public class TeamConfigModule {
 
-  @Bean
-  public ModuleConfig loadConfig() {
-    try {
-      Resource resource = new ClassPathResource("team-system-config.json");
-      File file = resource.getFile();
-      String readFile = new String(Files.readAllBytes(file.toPath()));
-      ModuleConfig moduleConfig = new Gson().fromJson(readFile, ModuleConfig.class);
-      return moduleConfig;
-    } catch (Exception e) {
-      throw new RuntimeException("Cant load config file");
-    }
-  }
+  private final ModuleConfig moduleConfig;
 
   @Bean
   public Connection initJooq() {
     try {
-      Resource resource = new ClassPathResource("team-system-config.json");
-      File file = resource.getFile();
-      String readFile = new String(Files.readAllBytes(file.toPath()));
-      ModuleConfig moduleConfig = new Gson().fromJson(readFile, ModuleConfig.class);
       DatabaseConfig input = moduleConfig.getDatabaseConfig();
-      Connection con = DriverManager
-          .getConnection(input.getUrl(), input.getUsername(), input.getPassword());
+      Connection con = getDataSource().getConnection();
+      log.info("Init connection to db success");
       return con;
     } catch (Exception e) {
       throw new RuntimeException("Cant't init connection to db");
     }
+  }
+
+  @Bean
+  public DataSource getDataSource() {
+    DatabaseConfig dbConfig = moduleConfig.getDatabaseConfig();
+    DriverManagerDataSource dataSource = new DriverManagerDataSource();
+    dataSource.setDriverClassName(dbConfig.getClassDriver());
+    dataSource.setUrl(dbConfig.getUrl());
+    dataSource.setUsername(dbConfig.getUsername());
+    dataSource.setPassword(dbConfig.getPassword());
+    return dataSource;
   }
 }

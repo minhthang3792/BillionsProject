@@ -10,11 +10,12 @@ import org.jooq.conf.Settings;
 import org.jooq.impl.DefaultDSLContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 
 
 public class AutoCloseableDSLContext extends DefaultDSLContext implements AutoCloseable {
 
-  private static Logger LOGGER = LoggerFactory.getLogger( AutoCloseableDSLContext.class);
+  private static Logger LOGGER = LoggerFactory.getLogger(AutoCloseableDSLContext.class);
   private Connection connection;
   private SQLDialect dialect;
   private DataSource dataSource;
@@ -57,14 +58,15 @@ public class AutoCloseableDSLContext extends DefaultDSLContext implements AutoCl
     this.configuration = configuration;
   }
 
-  @Override
-  public void close() {
-    if (connection != null) {
-      try {
-        connection.close();
-      } catch (SQLException e) {
-        LOGGER.debug(e.getMessage());
-      }
-    }
-  }
+//  @Override
+//  public void close() {
+//    if (connection != null) {
+//      try {
+//        connection.close();
+//        LOGGER.info("connection close");
+//      } catch (SQLException e) {
+//        LOGGER.debug(e.getMessage());
+//      }
+//    }
+//  }
 }
