@@ -4,11 +4,11 @@
 package vn.team.system.repository.model.routines;
 
 
-import vn.team.system.repository.model.Personel;
-
 import org.jooq.Parameter;
 import org.jooq.impl.AbstractRoutine;
 import org.jooq.impl.Internal;
+
+import vn.team.system.repository.model.Personel;
 
 
 /**
@@ -17,10 +17,10 @@ import org.jooq.impl.Internal;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Spthongkethanhtich extends AbstractRoutine<java.lang.Void> {
 
-    private static final long serialVersionUID = -1055650893;
+    private static final long serialVersionUID = 1191516725;
 
     /**
-     * The parameter <code>Personel.spThongKeThanhTich._StaffId</code>.
+     * The parameter <code>personel.spThongKeThanhTich._StaffId</code>.
      */
     public static final Parameter<String> _STAFFID = Internal.createParameter("_StaffId", org.jooq.impl.SQLDataType.VARCHAR(10), false, false);
 

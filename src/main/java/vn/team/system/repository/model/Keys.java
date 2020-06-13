@@ -4,6 +4,12 @@
 package vn.team.system.repository.model;
 
 
+import org.jooq.ForeignKey;
+import org.jooq.Identity;
+import org.jooq.TableField;
+import org.jooq.UniqueKey;
+import org.jooq.impl.Internal;
+
 import vn.team.system.repository.model.tables.Depart;
 import vn.team.system.repository.model.tables.Record;
 import vn.team.system.repository.model.tables.Staff;
@@ -13,16 +19,10 @@ import vn.team.system.repository.model.tables.records.RecordRecord;
 import vn.team.system.repository.model.tables.records.StaffRecord;
 import vn.team.system.repository.model.tables.records.UserRecord;
 
-import org.jooq.ForeignKey;
-import org.jooq.Identity;
-import org.jooq.TableField;
-import org.jooq.UniqueKey;
-import org.jooq.impl.Internal;
-
 
 /**
  * A class modelling foreign key relationships and constraints of tables of 
- * the <code>Personel</code> schema.
+ * the <code>personel</code> schema.
  */
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Keys {
@@ -54,17 +54,14 @@ public class Keys {
     // -------------------------------------------------------------------------
 
     private static class Identities0 {
-        public static Identity<RecordRecord, Integer> IDENTITY_RECORD = Internal.createIdentity(
-            Record.RECORD, Record.RECORD.ID);
+        public static Identity<RecordRecord, Integer> IDENTITY_RECORD = Internal.createIdentity(Record.RECORD, Record.RECORD.ID);
     }
 
     private static class UniqueKeys0 {
-        public static final UniqueKey<DepartRecord> KEY_DEPART_PRIMARY = Internal.createUniqueKey(
-            Depart.DEPART, "KEY_Depart_PRIMARY", new TableField[] { Depart.DEPART.ID }, true);
-        public static final UniqueKey<RecordRecord> KEY_RECORD_PRIMARY = Internal.createUniqueKey(Record.RECORD, "KEY_Record_PRIMARY", new TableField[] { Record.RECORD.ID }, true);
-        public static final UniqueKey<StaffRecord> KEY_STAFF_PRIMARY = Internal.createUniqueKey(
-            Staff.STAFF, "KEY_Staff_PRIMARY", new TableField[] { Staff.STAFF.ID }, true);
-        public static final UniqueKey<UserRecord> KEY_USER_PRIMARY = Internal.createUniqueKey(User.USER, "KEY_User_PRIMARY", new TableField[] { User.USER.USERNAME }, true);
+        public static final UniqueKey<DepartRecord> KEY_DEPART_PRIMARY = Internal.createUniqueKey(Depart.DEPART, "KEY_depart_PRIMARY", new TableField[] { Depart.DEPART.ID }, true);
+        public static final UniqueKey<RecordRecord> KEY_RECORD_PRIMARY = Internal.createUniqueKey(Record.RECORD, "KEY_record_PRIMARY", new TableField[] { Record.RECORD.ID }, true);
+        public static final UniqueKey<StaffRecord> KEY_STAFF_PRIMARY = Internal.createUniqueKey(Staff.STAFF, "KEY_staff_PRIMARY", new TableField[] { Staff.STAFF.ID }, true);
+        public static final UniqueKey<UserRecord> KEY_USER_PRIMARY = Internal.createUniqueKey(User.USER, "KEY_user_PRIMARY", new TableField[] { User.USER.USERNAME }, true);
     }
 
     private static class ForeignKeys0 {

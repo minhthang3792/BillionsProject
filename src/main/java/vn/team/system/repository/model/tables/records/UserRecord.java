@@ -4,13 +4,13 @@
 package vn.team.system.repository.model.tables.records;
 
 
-import vn.team.system.repository.model.tables.User;
-
 import org.jooq.Field;
 import org.jooq.Record1;
 import org.jooq.Record3;
 import org.jooq.Row3;
 import org.jooq.impl.UpdatableRecordImpl;
+
+import vn.team.system.repository.model.tables.User;
 
 
 /**
@@ -19,45 +19,45 @@ import org.jooq.impl.UpdatableRecordImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class UserRecord extends UpdatableRecordImpl<UserRecord> implements Record3<String, String, String> {
 
-    private static final long serialVersionUID = 1914421355;
+    private static final long serialVersionUID = -653949071;
 
     /**
-     * Setter for <code>Personel.User.Username</code>.
+     * Setter for <code>personel.user.Username</code>.
      */
     public void setUsername(String value) {
         set(0, value);
     }
 
     /**
-     * Getter for <code>Personel.User.Username</code>.
+     * Getter for <code>personel.user.Username</code>.
      */
     public String getUsername() {
         return (String) get(0);
     }
 
     /**
-     * Setter for <code>Personel.User.Password</code>.
+     * Setter for <code>personel.user.Password</code>.
      */
     public void setPassword(String value) {
         set(1, value);
     }
 
     /**
-     * Getter for <code>Personel.User.Password</code>.
+     * Getter for <code>personel.user.Password</code>.
      */
     public String getPassword() {
         return (String) get(1);
     }
 
     /**
-     * Setter for <code>Personel.User.Fullname</code>.
+     * Setter for <code>personel.user.Fullname</code>.
      */
     public void setFullname(String value) {
         set(2, value);
     }
 
     /**
-     * Getter for <code>Personel.User.Fullname</code>.
+     * Getter for <code>personel.user.Fullname</code>.
      */
     public String getFullname() {
         return (String) get(2);

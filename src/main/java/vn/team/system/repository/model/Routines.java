@@ -4,21 +4,21 @@
 package vn.team.system.repository.model;
 
 
+import org.jooq.Configuration;
+
 import vn.team.system.repository.model.routines.Spgettop10staff;
 import vn.team.system.repository.model.routines.Spthongkethanhtich;
 import vn.team.system.repository.model.routines.Spthongkethanhtichphongban;
 
-import org.jooq.Configuration;
-
 
 /**
- * Convenience access to all stored procedures and functions in Personel
+ * Convenience access to all stored procedures and functions in personel
  */
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Routines {
 
     /**
-     * Call <code>Personel.spGetTop10Staff</code>
+     * Call <code>personel.spGetTop10Staff</code>
      */
     public static void spgettop10staff(Configuration configuration) {
         Spgettop10staff p = new Spgettop10staff();
@@ -27,7 +27,7 @@ public class Routines {
     }
 
     /**
-     * Call <code>Personel.spThongKeThanhTich</code>
+     * Call <code>personel.spThongKeThanhTich</code>
      */
     public static void spthongkethanhtich(Configuration configuration, String _Staffid) {
         Spthongkethanhtich p = new Spthongkethanhtich();
@@ -37,7 +37,7 @@ public class Routines {
     }
 
     /**
-     * Call <code>Personel.spThongKeThanhTichPhongBan</code>
+     * Call <code>personel.spThongKeThanhTichPhongBan</code>
      */
     public static void spthongkethanhtichphongban(Configuration configuration) {
         Spthongkethanhtichphongban p = new Spthongkethanhtichphongban();

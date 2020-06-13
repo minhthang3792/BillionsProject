@@ -4,17 +4,17 @@
 package vn.team.system.repository.model;
 
 
-import vn.team.system.repository.model.tables.Depart;
-import vn.team.system.repository.model.tables.Record;
-import vn.team.system.repository.model.tables.Staff;
-import vn.team.system.repository.model.tables.User;
-
 import java.util.Arrays;
 import java.util.List;
 
 import org.jooq.Catalog;
 import org.jooq.Table;
 import org.jooq.impl.SchemaImpl;
+
+import vn.team.system.repository.model.tables.Depart;
+import vn.team.system.repository.model.tables.Record;
+import vn.team.system.repository.model.tables.Staff;
+import vn.team.system.repository.model.tables.User;
 
 
 /**
@@ -23,30 +23,30 @@ import org.jooq.impl.SchemaImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Personel extends SchemaImpl {
 
-    private static final long serialVersionUID = -794254619;
+    private static final long serialVersionUID = -551939857;
 
     /**
-     * The reference instance of <code>Personel</code>
+     * The reference instance of <code>personel</code>
      */
     public static final Personel PERSONEL = new Personel();
 
     /**
-     * The table <code>Personel.Depart</code>.
+     * The table <code>personel.depart</code>.
      */
     public final Depart DEPART = Depart.DEPART;
 
     /**
-     * The table <code>Personel.Record</code>.
+     * The table <code>personel.record</code>.
      */
     public final Record RECORD = Record.RECORD;
 
     /**
-     * The table <code>Personel.Staff</code>.
+     * The table <code>personel.staff</code>.
      */
     public final Staff STAFF = Staff.STAFF;
 
     /**
-     * The table <code>Personel.User</code>.
+     * The table <code>personel.user</code>.
      */
     public final User USER = User.USER;
 
@@ -54,7 +54,7 @@ public class Personel extends SchemaImpl {
      * No further instances allowed
      */
     private Personel() {
-        super("Personel", null);
+        super("personel", null);
     }
 
 

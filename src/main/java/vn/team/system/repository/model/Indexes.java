@@ -4,16 +4,16 @@
 package vn.team.system.repository.model;
 
 
-import vn.team.system.repository.model.tables.Record;
-import vn.team.system.repository.model.tables.Staff;
-
 import org.jooq.Index;
 import org.jooq.OrderField;
 import org.jooq.impl.Internal;
 
+import vn.team.system.repository.model.tables.Record;
+import vn.team.system.repository.model.tables.Staff;
+
 
 /**
- * A class modelling indexes of tables of the <code>Personel</code> schema.
+ * A class modelling indexes of tables of the <code>personel</code> schema.
  */
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Indexes {

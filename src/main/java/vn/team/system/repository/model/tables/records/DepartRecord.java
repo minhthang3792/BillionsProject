@@ -4,13 +4,13 @@
 package vn.team.system.repository.model.tables.records;
 
 
-import vn.team.system.repository.model.tables.Depart;
-
 import org.jooq.Field;
 import org.jooq.Record1;
 import org.jooq.Record2;
 import org.jooq.Row2;
 import org.jooq.impl.UpdatableRecordImpl;
+
+import vn.team.system.repository.model.tables.Depart;
 
 
 /**
@@ -19,31 +19,31 @@ import org.jooq.impl.UpdatableRecordImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class DepartRecord extends UpdatableRecordImpl<DepartRecord> implements Record2<String, String> {
 
-    private static final long serialVersionUID = 1594087453;
+    private static final long serialVersionUID = 909617375;
 
     /**
-     * Setter for <code>Personel.Depart.Id</code>.
+     * Setter for <code>personel.depart.Id</code>.
      */
     public void setId(String value) {
         set(0, value);
     }
 
     /**
-     * Getter for <code>Personel.Depart.Id</code>.
+     * Getter for <code>personel.depart.Id</code>.
      */
     public String getId() {
         return (String) get(0);
     }
 
     /**
-     * Setter for <code>Personel.Depart.Name</code>.
+     * Setter for <code>personel.depart.Name</code>.
      */
     public void setName(String value) {
         set(1, value);
     }
 
     /**
-     * Getter for <code>Personel.Depart.Name</code>.
+     * Getter for <code>personel.depart.Name</code>.
      */
     public String getName() {
         return (String) get(1);

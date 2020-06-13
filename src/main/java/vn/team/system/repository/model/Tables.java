@@ -11,28 +11,28 @@ import vn.team.system.repository.model.tables.User;
 
 
 /**
- * Convenience access to all tables in Personel
+ * Convenience access to all tables in personel
  */
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Tables {
 
     /**
-     * The table <code>Personel.Depart</code>.
+     * The table <code>personel.depart</code>.
      */
     public static final Depart DEPART = Depart.DEPART;
 
     /**
-     * The table <code>Personel.Record</code>.
+     * The table <code>personel.record</code>.
      */
     public static final Record RECORD = Record.RECORD;
 
     /**
-     * The table <code>Personel.Staff</code>.
+     * The table <code>personel.staff</code>.
      */
     public static final Staff STAFF = Staff.STAFF;
 
     /**
-     * The table <code>Personel.User</code>.
+     * The table <code>personel.user</code>.
      */
     public static final User USER = User.USER;
 }

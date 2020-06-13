@@ -4,9 +4,9 @@
 package vn.team.system.repository.model.routines;
 
 
-import vn.team.system.repository.model.Personel;
-
 import org.jooq.impl.AbstractRoutine;
+
+import vn.team.system.repository.model.Personel;
 
 
 /**
@@ -15,7 +15,7 @@ import org.jooq.impl.AbstractRoutine;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Spgettop10staff extends AbstractRoutine<java.lang.Void> {
 
-    private static final long serialVersionUID = -700124529;
+    private static final long serialVersionUID = -444629263;
 
     /**
      * Create a new routine call instance
