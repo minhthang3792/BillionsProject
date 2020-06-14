@@ -1,4 +1,4 @@
-package vn.team.system;
+package vn.team.system.app;
 
 import java.sql.Connection;
 import javax.sql.DataSource;
