@@ -1,14 +1,12 @@
 package vn.team.system;
 
 import com.google.gson.Gson;
-import java.io.File;
-import java.nio.file.Files;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jackson.JacksonAutoConfiguration;
 import org.springframework.context.annotation.Bean;
-import org.springframework.core.io.ClassPathResource;
-import org.springframework.core.io.Resource;
 import vn.team.system.common.ModuleConfig;
 
 @SpringBootApplication(exclude = {JacksonAutoConfiguration.class})
@@ -21,10 +19,14 @@ public class App {
   @Bean
   public ModuleConfig loadConfig() {
     try {
-      Resource resource = new ClassPathResource("team-system-config.json");
-      File file = resource.getFile();
-      String readFile = new String(Files.readAllBytes(file.toPath()));
+      BufferedReader bufferedReader = new BufferedReader(
+          new InputStreamReader(getClass().getResourceAsStream("/team-system-config.json")));
+      String readFile = "";
+      while (bufferedReader.ready()) {
+        readFile += bufferedReader.readLine();
+      }
       ModuleConfig moduleConfig = new Gson().fromJson(readFile, ModuleConfig.class);
+      bufferedReader.close();
       return moduleConfig;
     } catch (Exception e) {
       throw new RuntimeException("Cant load config file");
