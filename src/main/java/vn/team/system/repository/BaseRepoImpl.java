@@ -6,15 +6,16 @@ import java.sql.Connection;
 import java.util.List;
 import lombok.extern.slf4j.Slf4j;
 import org.jooq.Condition;
+import org.jooq.Configuration;
 import org.jooq.Record;
-import org.jooq.SQLDialect;
 import org.jooq.Table;
 import org.jooq.TableField;
 import org.jooq.UniqueKey;
 import org.jooq.UpdateSetMoreStep;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import vn.team.system.common.context.AutoCloseableDSLContext;
-import vn.team.system.common.exception.DBException;
+import vn.team.system.common.exception.DBException.SQLExcuteError;
 
 @Slf4j
 public class BaseRepoImpl<K extends Serializable, R extends Record, T extends Table> implements
@@ -23,12 +24,17 @@ public class BaseRepoImpl<K extends Serializable, R extends Record, T extends Ta
   @Autowired
   private Connection connection;
 
+  @Qualifier("getConfiguration")
+  @Autowired
+  private Configuration configuration;
+
   public void setConnection(Connection connection) {
     this.connection = connection;
   }
 
   protected AutoCloseableDSLContext getAutoCloseableDSLContext() throws Exception {
-    return new AutoCloseableDSLContext(connection, SQLDialect.MYSQL);
+//    return new AutoCloseableDSLContext(connection, SQLDialect.MYSQL);
+    return new AutoCloseableDSLContext(configuration);
   }
 
   private UniqueKey getPrimaryKey() throws InstantiationException, IllegalAccessException {
@@ -67,7 +73,7 @@ public class BaseRepoImpl<K extends Serializable, R extends Record, T extends Ta
           .selectFrom(getTable())
           .fetch();
     } catch (Exception e) {
-      throw new DBException.SQLExcuteError("fetch all error");
+      throw new SQLExcuteError("fetch all error");
     }
   }
 
@@ -80,7 +86,7 @@ public class BaseRepoImpl<K extends Serializable, R extends Record, T extends Ta
           .execute();
     } catch (Exception e) {
       log.error("failed to save record: " + e.getMessage());
-      throw new DBException.SQLExcuteError("failed to save record");
+      throw new SQLExcuteError("failed to save record");
     }
   }
 
@@ -95,7 +101,7 @@ public class BaseRepoImpl<K extends Serializable, R extends Record, T extends Ta
       }
     } catch (Exception e) {
       log.error("failed to update record: " + e.getMessage());
-      throw new DBException.SQLExcuteError("failed to update record");
+      throw new SQLExcuteError("failed to update record");
     }
   }
 }

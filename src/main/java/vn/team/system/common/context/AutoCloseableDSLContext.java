@@ -32,6 +32,7 @@ public class AutoCloseableDSLContext extends DefaultDSLContext implements AutoCl
     super(connection, dialect);
     this.connection = connection;
     this.dialect = dialect;
+    System.out.println("new DSL");
   }
 
   public AutoCloseableDSLContext(Connection connection, SQLDialect dialect, Settings settings) {
@@ -58,15 +59,15 @@ public class AutoCloseableDSLContext extends DefaultDSLContext implements AutoCl
     this.configuration = configuration;
   }
 
-//  @Override
-//  public void close() {
-//    if (connection != null) {
-//      try {
-//        connection.close();
-//        LOGGER.info("connection close");
-//      } catch (SQLException e) {
-//        LOGGER.debug(e.getMessage());
-//      }
-//    }
-//  }
+  @Override
+  public void close() {
+    if (connection != null) {
+      try {
+        connection.close();
+        LOGGER.info("connection close");
+      } catch (SQLException e) {
+        LOGGER.debug(e.getMessage());
+      }
+    }
+  }
 }

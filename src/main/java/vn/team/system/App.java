@@ -1,5 +1,5 @@
 package vn.team.system;
-
+import com.mysql.cj.jdbc.MysqlDataSource;
 import com.google.gson.Gson;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -7,6 +7,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jackson.JacksonAutoConfiguration;
 import org.springframework.context.annotation.Bean;
+import vn.team.system.app.TeamConfigModule;
 import vn.team.system.common.ModuleConfig;
 
 @SpringBootApplication(exclude = {JacksonAutoConfiguration.class})
@@ -14,6 +15,7 @@ public class App {
 
   public static void main(String args[]) {
     SpringApplication.run(App.class, args);
+
   }
 
   @Bean

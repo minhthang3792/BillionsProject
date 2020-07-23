@@ -6,6 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import vn.team.system.common.constant.req_resp.CodeResponse;
+import vn.team.system.common.info.DepartInfo;
 import vn.team.system.common.info.RestfulCommonResponse;
 import vn.team.system.common.info.RestfulSuccessResponse;
 import vn.team.system.common.info.UserInfo;
@@ -23,7 +24,7 @@ public class UserServiceImpl implements UserService {
   @Override
   public RestfulCommonResponse fetchAll() {
     try {
-      List<UserInfo> output = userRepo.getAll();
+      List<DepartInfo> output = userRepo.getAll();
       return new RestfulSuccessResponse()
           .setData(gson.toJsonTree(output));
     } catch (Exception e) {
